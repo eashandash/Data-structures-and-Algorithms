@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1473262709 source:h:\codes\pallindrome in array\main.c
+	<stdio.h>
+	<string.h>
+

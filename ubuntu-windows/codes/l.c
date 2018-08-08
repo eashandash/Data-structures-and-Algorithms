@@ -1,0 +1,177 @@
+//linked list implementation
+
+#include<stdio.h>
+
+struct node
+{
+  int data;
+  struct node*nptr;
+};
+
+struct node*hptr=NULL;
+
+void insert(int x,int pos)
+{
+  struct node*temp=malloc(sizeof(struct node));
+  struct node*thptr = hptr;
+  int i=1;
+  
+  if(pos==1)
+  {
+   temp->data=x;
+    temp->nptr=hptr;
+    hptr=temp;
+  }
+   else 
+  {
+    while((thptr!=NULL)&&(i<pos-1))
+     {
+      thptr=thptr->nptr;
+      i++;
+     }
+    temp->data=x;
+   temp->nptr=thptr->nptr;
+   thptr->nptr=temp;
+
+ }
+}
+
+ void print()
+{
+   struct node*thptr=hptr;
+  while(thptr!=NULL)
+ {
+  printf("----> %d",thptr->data);
+  thptr=thptr->nptr;
+ }
+
+}
+
+ void lsearch(int x)
+{ 
+ struct node*thptr=hptr;
+ int flag=1;
+ while(thptr!=NULL)
+{
+  if(x==thptr->data)
+ {
+   flag=0;
+ }
+  thptr=thptr->nptr;
+
+ }
+ if(flag==0)
+printf("\nelement found");
+else
+printf("\nnot found");
+
+}
+  
+ int main()
+{
+ int ch,k,x;
+ 
+ 
+
+ do
+{
+ printf("menu 1.insert 2.print 3.linear search\n");
+ scanf("%d",&ch);
+ 
+ switch(ch)
+ {
+ case 1 : {printf("enter element ");
+           scanf("%d",&x);
+           printf("enter position ");
+           scanf("%d",&k);
+           insert(x,k);
+           print();
+           }
+           break;
+
+case 2 : {
+           print();
+          }
+          break;
+
+ case 3: {
+          printf("enter element to search for"); 
+          scanf("%d",&x);
+          lsearch(x);
+          }
+           break;
+
+
+}
+
+printf("do u wanna continue ?");
+scanf("%d",&ch);
+}while(ch==1);
+
+
+
+return(0);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+ 
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
